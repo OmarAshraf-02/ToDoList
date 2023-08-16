@@ -1,0 +1,170 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: rgba(0, 0, 0, 0.87);
+	color: white;
+	font-size: 0.8rem;
+}
+
+h1,
+h3 {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: 25px;
+}
+
+h3 {
+	font-weight: 200;
+}
+
+ul {
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	justify-content: center;
+	margin-bottom: 2px;
+}
+
+#item {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	color: white;
+	border-bottom: 1px solid #8b8b8b;
+	margin-left: 12px;
+	width: 95%;
+	font-size: 1rem;
+	font-family: "Montserrat", sans-serif;
+	padding: 14px;
+	transition: border-color 0.22s ease-out;
+}
+
+#item:focus {
+	border: none;
+	border-bottom: 1px solid #80b6e2;
+	outline: none;
+}
+
+#item:hover:not(:focus) {
+	border-bottom: 1px solid #ffffff;
+}
+
+.addBtn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.5rem;
+	margin-left: 5px;
+	cursor: pointer;
+	transition: background-color 0.25s;
+}
+
+.addBtn:hover {
+	background-color: #5a5a5a;
+	color: #80b6e2;
+	outline: none;
+}
+
+.addBtn:active {
+	outline: none;
+	background-color: #8b8b8b;
+}
+
+li {
+	list-style: none;
+	font-size: 1rem;
+	border-bottom: 1px solid #505050;
+	padding: 10px 0;
+	width: 96.5%;
+	margin-right: 10px;
+	height: 35px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: background-color 0.2s ease-in-out;
+}
+
+ul {
+	padding-left: 30px;
+	margin-top: 5px;
+}
+
+li:hover {
+	background-color: #5a5a5a5b;
+}
+
+.deleteButton {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.25s;
+	margin-left: auto;
+	margin-right: 3px;
+}
+
+.deleteButton:hover {
+	background-color: #5a5a5a;
+	color: #80b6e2;
+	outline: none;
+}
+
+.deleteButton:active {
+	outline: none;
+	background-color: #8b8b8b;
+}
+
+#myCheckbox {
+	position: relative; /* Add this to create a stacking context */
+	width: 22px;
+	height: 22px;
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0);
+	color: #80b6e2;
+	font-size: 16px;
+	vertical-align: middle;
+	cursor: pointer;
+	outline: none;
+}
+
+#myCheckbox:checked::before {
+	content: "\2713"; /* Unicode character for checkmark */
+	position: absolute;
+	top: 50%; /* Vertically center */
+	left: 50%; /* Horizontally center */
+	transform: translate(-50%, -50%); /* Center the checkmark */
+	font-size: 16px; /* Adjust the size as needed */
+	color: #000; /* Color of the checkmark */
+	font-weight: 500;
+}
+
+#myCheckbox:checked {
+	background-color: #80b6e2;
+	color: #fff;
+	border-color: #8b8b8b;
+	content: "\2713";
+}
+
+#myCheckbox[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+#myCheckbox:hover {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
