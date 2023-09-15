@@ -1,13 +1,32 @@
-let title = prompt("Enter the name of your list");
-while (!title) {
-	title = prompt("Enter the name of your list");
-}
+title = "Untitled";
 
 let count = 0;
 let checked = 0;
+
 const container = document.querySelector(".container");
 const h1 = document.createElement("h1");
 h1.innerText = title;
+h1.contentEditable = true;
+h1.spellcheck = false;
+h1.style.fontWeight = 700;
+
+h1.addEventListener("blur", () => {
+	const editedTitle = h1.innerText.trim();
+	if (editedTitle === "") {
+		h1.innerText = "Untitled";
+		title = "Untitled";
+	} else {
+		h1.innerText = editedTitle;
+		title = editedTitle;
+	}
+});
+
+h1.addEventListener("keypress", (e) => {
+	if (e.key === "Enter") {
+		h1.blur();
+	}
+});
+
 const h3 = document.createElement("h3");
 h3.innerText = "0 tasks, 0 done";
 document.body.prepend(h1, h3);
@@ -54,46 +73,40 @@ addButton.addEventListener("click", () => {
 			const listItem = del.parentNode; //selects the li containing the button
 			list.removeChild(listItem);
 			count--;
-			if (checked > 0) {
+
+			if (checkbox.checked) {
 				checked--;
 			}
-			if (count !== 1) {
-				h3.innerText = `${String(count)} tasks, ${checked} done`;
-			} else {
-				h3.innerText = `${String(count)} task, ${checked} done`;
-			}
+
+			updateCounter();
 		});
 
 		checkbox.addEventListener("change", (e) => {
 			if (e.target.checked) {
 				li.style.textDecoration = "line-through";
 				checked++;
-				if (count !== 1) {
-					h3.innerText = `${String(count)} tasks, ${checked} done`;
-				} else {
-					h3.innerText = `${String(count)} task, ${checked} done`;
-				}
 			} else {
 				li.style.textDecoration = "none";
 				checked--;
-				if (count !== 1) {
-					h3.innerText = `${String(count)} tasks, ${checked} done`;
-				} else {
-					h3.innerText = `${String(count)} task, ${checked} done`;
-				}
 			}
+
+			updateCounter();
 		});
 
-		input.value = "";
 		count++;
-		if (count !== 1) {
-			h3.innerText = `${String(count)} tasks, ${checked} done`;
-		} else {
-			h3.innerText = `${String(count)} task, ${checked} done`;
-		}
+		updateCounter();
+		input.value = "";
 		input.focus();
 	}
 });
+
+updateCounter = () => {
+	if (count !== 1) {
+		h3.innerText = `${count} tasks, ${checked} done`;
+	} else {
+		h3.innerText = `${count} task, ${checked} done`;
+	}
+};
 
 input.addEventListener("keypress", (e) => {
 	if (e.key === "Enter") {

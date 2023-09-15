@@ -13,11 +13,43 @@ h3 {
 }
 
 h1 {
-	font-weight: 400;
+	font-weight: 700;
+	width: fit-content;
+}
+
+h1[contenteditable="true"] {
+	outline: none;
+	transition: background-color 0.15s ease-in-out, border-color 0.15s ease-out;
+	padding: 0 2px 0 1px;
+	border-radius: 4px;
+	user-select: none;
+}
+
+h1[contenteditable="true"]::selection {
+	background-color: #464545;
+}
+
+h1[contenteditable="true"]:hover {
+	background-color: #363636;
+	cursor: pointer;
+}
+
+h1[contenteditable="true"]:focus {
+	outline: none; /* Remove the default outline */
+	border-bottom: 1px solid #007bff; /* Add a border when focused */
+	border-radius: 0;
+}
+
+h1[contenteditable="true"]:focus,
+h1[contenteditable="true"]:focus:hover {
+	background-color: initial; /* Override hover background color when focused */
+	cursor: initial;
 }
 
 h3 {
-	font-weight: 200;
+	font-weight: 300;
+	padding-left: 3px;
+	user-select: none;
 }
 
 ul {
