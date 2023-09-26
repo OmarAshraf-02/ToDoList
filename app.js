@@ -12,7 +12,7 @@ h1.style.fontWeight = 700;
 
 h1.addEventListener("blur", () => {
 	const editedTitle = h1.innerText.trim();
-	if (editedTitle === "") {
+	if (editedTitle === "" || editedTitle.length >= 40) {
 		h1.innerText = "Untitled";
 		title = "Untitled";
 	} else {
